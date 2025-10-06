@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root {
+
+  /* --background: #FF5200; */
+
+  --background: #ff5200;
+
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@theme {
+  --breakpoint-sj: 360px;
+}
+
+body {
+  /* background: #FF5200; */
+  color: var(--foreground);
+  font-family: "Proxima Nova", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUp {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.animate-slideUp.active {
+  animation: slideUp 1s ease-out forwards;
+}
+
+@keyframes bounceForward {
+  0% {
+    transform: scale(0.5) translateZ(-200px);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.1) translateZ(50px);
+    opacity: 1;
+  }
+
+  70% {
+    transform: scale(0.95) translateZ(0);
+  }
+
+  100% {
+    transform: scale(1) translateZ(0);
+    opacity: 1;
+  }
+}
+
+.animate-bounceForward {
+  animation: bounceForward 1s ease-out forwards;
+}
