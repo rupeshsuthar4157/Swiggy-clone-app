@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Address from "./Address"
 
-export default function AboutPage() {
+export default function Delevery() {
+    const Delevery = "Delivering for everyone"
+    const SecondText = "Multiple benefits across the ecosystem for consumers, partners and riders"
     const headingRef = useRef<HTMLHeadingElement | null>(null);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -28,20 +29,18 @@ export default function AboutPage() {
     }, []);
 
     return (
-        <section className="w-full py-16 bg-white">
+        <section className="w-full py-16">
             <div className="max-w-5xl mx-auto px-4">
                 <h2
                     ref={headingRef}
                     className={`relative text-center text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-12 px-4 animate-slideUp ${isVisible ? "active" : ""
                         }`}
                 >
-                    <span className="hidden sm:block before:content-[''] before:absolute before:left-4 sm:before:left-20 md:before:left-40 lg:before:left-45 before:top-1/2 before:w-8 sm:before:w-12 md:before:w-16 before:border-t before:border-orange-500"></span>
 
-                    <span className="relative font-extrabold block text-capitalize">GET IN TOUCH WITH US</span>
+                    <span className="relative font-extrabold block text-capitalize">{Delevery}</span>
+                    <span className="mt-4 relative font-semibold block  text-[#8A8A8D] text-xl">{SecondText}</span>
 
-                    <span className="hidden sm:block after:content-[''] after:absolute after:right-4 sm:after:right-20 md:after:right-40 lg:after:right-45 after:top-1/2 after:w-8 sm:after:w-12 md:after:w-16 after:border-t after:border-orange-500"></span>
                 </h2>
-                <Address />
             </div>
         </section>
     );
