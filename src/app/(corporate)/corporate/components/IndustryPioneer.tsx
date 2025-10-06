@@ -2,7 +2,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import Count from "./Count";
+import Count from "./Count"
 
 const data = [
     {

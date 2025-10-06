@@ -2,7 +2,7 @@
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 import Image from "next/image";
 import React, { useRef } from "react";
-import { breakfastImag, BreakfastItemes } from "../data/Extra Restaurants ";
+import { breakfastImag, BreakfastItemes } from "../../../data/Extra Restaurants "
 
 const CardSlider = () => {
   const sliderRef = useRef<HTMLDivElement | null>(null);

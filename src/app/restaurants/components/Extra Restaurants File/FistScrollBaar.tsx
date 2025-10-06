@@ -2,7 +2,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { breakfastImages } from "../data/breakfast";
+import { breakfastImages } from "../../../data/breakfast"
 
 const Slidebar2 = () => {
   const sliderRef = useRef<HTMLDivElement | null>(null);

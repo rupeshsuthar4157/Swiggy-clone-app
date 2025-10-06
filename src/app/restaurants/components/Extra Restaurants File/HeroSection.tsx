@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { ArrowRightLeft, Star } from 'lucide-react';
 import React from 'react';
-import { breakfastImag, BreakfastItemes } from "../data/HeroExtra";
-import Text from '../components/Header/Text';
-import Footer from '../components/Header/Footer';
+import { breakfastImag, BreakfastItemes } from "../../../data/HeroExtra"
+import Text from '../../../components/Header/Text'
+import Footer from '../../../components/Header/Footer'
 
 const HeroSection = () => {
   const text = "Restaurants with online food delivery in Bangalore";

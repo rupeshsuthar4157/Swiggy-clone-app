@@ -14,9 +14,9 @@ import {
     ClockAlert,
     X,
 } from "lucide-react";
-import Slidebar2 from "../Extra Restaurants File/FistScrollBaar";
-import CardSlider from "../Extra Restaurants File/Second";
-import HeroSection from "../Extra Restaurants File/HeroSection";
+import Slidebar2 from "./components/Extra Restaurants File/FistScrollBaar"
+import CardSlider from "./components/Extra Restaurants File/Second"
+import HeroSection from "./components/Extra Restaurants File/HeroSection"
 import { usePathname } from "next/navigation";
 
 
