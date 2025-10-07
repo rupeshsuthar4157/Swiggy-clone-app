@@ -32,7 +32,6 @@ export default function Header() {
     closeSidebar();
   };
 
-  /** Navigation Links Component */
   const NavigationLinks = ({ mobile = false }) => {
     const linkClasses = mobile
       ? "block py-3 border-b border-gray-100 font-bold text-lg text-black"
