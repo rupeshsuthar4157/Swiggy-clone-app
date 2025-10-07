@@ -20,7 +20,7 @@ const RideWithSwiggyTwo = forwardRef<HTMLDivElement>((props, ref) => {
               className="transition-all"
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 2, y: 0 }}
-              transition={{ duration: 1.8, ease: "easeOut" }}
+              transition={{ duration: 2.8, ease: "easeOut" }}
               viewport={{ once: true }}
             >
             <h2 className="text-2xl font-semibold text-[#16191D]">{title}</h2>
@@ -40,7 +40,7 @@ const RideWithSwiggyTwo = forwardRef<HTMLDivElement>((props, ref) => {
               className="transition-all"
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 2, y: 0 }}
-              transition={{ duration: 3.8, ease: "easeOut" }}
+              transition={{ duration: 2.8, ease: "easeOut" }}
               viewport={{ once: true }}
             >
 

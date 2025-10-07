@@ -68,7 +68,6 @@ export default function Header() {
 
   return (
     <div className="bg-[#FF5200]">
-      {/* HEADER BAR */}
       <header className="flex justify-between items-center container mx-auto px-4 py-3 md:px-8 md:py-5">
         {/* Logo */}
         <Link href="/" className="flex items-center">
