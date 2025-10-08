@@ -5,7 +5,8 @@ import Welcomebenefit from "./components/Welcomebenefit";
 import CashbackText from "./components/CashbackText";
 import Bonusbenefits from "./components/Bonusbenefits";
 import KeyDetails from "./components/Keydetails";
-// import Frequentlyquestions from './components/Frequentlyquestions'
+import ScantheQRcode from "./components/ScantheQRcode";
+import Frequentlyquestions from './components/Frequentlyquestions'
 
 const page = () => {
   return (
@@ -13,10 +14,11 @@ const page = () => {
       <HdfcNavbar />
       <HdfcHeroSection />
       <Welcomebenefit />
-      {/* <Frequentlyquestions/> */}
       <CashbackText />
       <Bonusbenefits />
       <KeyDetails/>
+      <ScantheQRcode/>
+      <Frequentlyquestions/>
     </div>
   );
 };

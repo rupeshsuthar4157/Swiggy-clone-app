@@ -22,7 +22,7 @@ On 1% cashback spends: ₹500/month`
 const KeyDetails = () => {
   return (
     <div className="max-w-5xl mx-auto py-12 px-4 text-center">
-      <h2 className="text-2xl md:text-3xl font-bold text-purple-700 mb-10">
+      <h2 className="text-2xl md:text-4xl font-bold text-purple-700 mb-10">
         Key details
       </h2>
 
