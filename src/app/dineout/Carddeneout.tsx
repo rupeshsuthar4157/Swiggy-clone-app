@@ -32,7 +32,7 @@ const Card = () => {
           >
             <div className="relative w-full h-52 rounded-t-lg overflow-hidden">
 
-              <Image
+              <img
                 src={item.src[imageIndexes[index]]}
                 alt={item.name}
                 width={400}
@@ -71,7 +71,7 @@ const Card = () => {
               </p>
 
               <div className="flex items-center gap-2 bg-[#F0F0F5] rounded-2xl px-2 py-1 w-fit">
-                <Image
+                <img
                   src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/dineout/rx-card/highlights/book.png"
                   alt=""
                   width={20}
@@ -85,7 +85,7 @@ const Card = () => {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between bg-[#1BA672] rounded-2xl px-4 py-2 text-white shadow-md">
                 <p className="font-medium">{item.box}</p>
                 <div className="flex items-center gap-2 mt-1 sm:mt-0">
-                  <Image
+                  <img
                     src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/dineout/rx-card/OFFER.png"
                     alt="Offer"
                     width={24}

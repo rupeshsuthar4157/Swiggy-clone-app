@@ -14,5 +14,5 @@ function CashbackText() {
     </div>
   );
 }
-
+ 
 export default CashbackText;
