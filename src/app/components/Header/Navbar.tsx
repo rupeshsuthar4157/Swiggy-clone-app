@@ -1,19 +1,41 @@
 "use client";
 
-import { Menu, X } from "lucide-react";
+import { Menu, X, Search, User, ShoppingCart, LifeBuoy, BadgePercent, GalleryVerticalEnd, MoveUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import SignupLoginForm from "@/app//components/Header/SignUAndLoginForm"
+import SignupLoginForm from "@/app/components/Header/SignUAndLoginForm";
 
 export default function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isCreateAccount, setIsCreateAccount] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const closeSidebar = () => {
     setIsSidebarOpen(false);
     setIsCreateAccount(false);
+    setIsMobileMenuOpen(false);
   };
+
+  const navLinks = (
+    <>
+      <Link href="/corporate" className="flex items-center gap-1 font-bold text-white ">
+        Swiggy Corporate
+      </Link>
+
+      <Link href="/offers" className="flex items-center gap-1 font-bold text-white  relative">
+        Partner with us
+      </Link>
+      <button className="border border-white rounded-lg px-3 py-3 flex items-center gap-2">
+        <Link href="/swiggy-super" className="flex items-center gap-1 font-bold text-sm text-white ">
+          Get The App
+        </Link>
+        <span
+        ><MoveUpRight size={12} /></span>
+      </button>
+
+    </>
+  );
 
   return (
     <div className="bg-[#FF5200]">
@@ -27,34 +49,33 @@ export default function Header() {
           />
         </Link>
 
-        <div className="hidden sm:flex items-center gap-3">
+        <div className="hidden sm:flex items-center gap-6">
+          {navLinks}
           <button
             onClick={() => setIsSidebarOpen(true)}
-            className="bg-black rounded-lg px-4 py-2 font-bold text-white"
+            className="bg-black rounded-[12px] px-7 py-2 font-bold text-white flex items-center gap-1"
           >
             Sign In
           </button>
         </div>
 
         <button
-          onClick={() => setIsSidebarOpen(true)}
+          onClick={() => setIsMobileMenuOpen(true)}
           className="sm:hidden text-white p-2"
         >
           <Menu size={28} />
         </button>
       </header>
 
-      {/* Overlay */}
-      {isSidebarOpen && (
+      {(isSidebarOpen || isMobileMenuOpen) && (
         <div
           onClick={closeSidebar}
           className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
         />
       )}
 
-      {/* Sidebar */}
       <aside
-        className={`fixed top-0 right-0 h-full w-full sm:w-2/3 md:w-1/3 bg-white shadow-lg z-50 transform transition-transform duration-300 ${isSidebarOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed top-0 right-0 h-full w-full sm:w-2/3 md:w-1/3 bg-white shadow-lg z-50 transform transition-transform duration-300 ${isSidebarOpen || isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
       >
         <div className="flex justify-end p-4">
@@ -63,10 +84,22 @@ export default function Header() {
           </button>
         </div>
 
-        <SignupLoginForm
-          isCreateAccount={isCreateAccount}
-          setIsCreateAccount={setIsCreateAccount}
-        />
+        {isSidebarOpen ? (
+          <SignupLoginForm
+            isCreateAccount={isCreateAccount}
+            setIsCreateAccount={setIsCreateAccount}
+          />
+        ) : (
+          <nav className="flex flex-col gap-4 p-6">
+            {navLinks}
+            <button
+              onClick={() => { setIsSidebarOpen(true); setIsMobileMenuOpen(false); }}
+              className="mt-4 w-full bg-[#FF5504] text-white font-bold py-3 rounded-md flex items-center justify-center gap-1"
+            >
+              <User size={18} /> Sign In
+            </button>
+          </nav>
+        )}
       </aside>
     </div>
   );
