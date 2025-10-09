@@ -1,13 +1,21 @@
 "use client";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-
-// Import data
 import { breakfastImages, breakfastImagesDuplicate } from "../../data/breakfast";
 
 const Slider = () => {
   const sliderRef = useRef<HTMLDivElement | null>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = () => {
+    if (sliderRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth);
+    }
+  };
 
   const scroll = (direction: "left" | "right") => {
     if (sliderRef.current) {
@@ -19,22 +27,46 @@ const Slider = () => {
     }
   };
 
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    checkScroll(); // Initial check
+    slider.addEventListener("scroll", checkScroll);
+    window.addEventListener("resize", checkScroll);
+
+    return () => {
+      slider.removeEventListener("scroll", checkScroll);
+      window.removeEventListener("resize", checkScroll);
+    };
+  }, []);
+
   return (
     <section className="container mx-auto mt-16 sm:mt-24 lg:mt-32 px-4 sm:px-6 lg:px-8">
       <div className="flex justify-between items-center">
         <h2 className="font-bold text-lg sm:text-xl md:text-2xl text-[#02060C]">
           Order our best food options
         </h2>
-        <div className="flex gap-3 sm:gap-4 ">
+        <div className="flex gap-3 sm:gap-4">
+          {/* Left Arrow */}
           <ArrowLeft
-            className="bg-[#D9DADB] text-[#23262B] p-2 rounded-full cursor-pointer md:block hidden"
             size={36}
-            onClick={() => scroll("left")}
+            onClick={() => canScrollLeft && scroll("left")}
+            className={`p-2 rounded-full cursor-pointer md:block hidden transition-all duration-200 ${
+              canScrollLeft
+                ? "bg-[#D9DADB] text-[#23262B] hover:bg-[#c7c9cb]"
+                : "bg-[#b4b4b4] text-[#6b6b6b] cursor-not-allowed"
+            }`}
           />
+          {/* Right Arrow */}
           <ArrowRight
-            className="bg-[#D9DADB] text-[#23262B] p-2 rounded-full cursor-pointer md:block hidden"
             size={36}
-            onClick={() => scroll("right")}
+            onClick={() => canScrollRight && scroll("right")}
+            className={`p-2 rounded-full cursor-pointer md:block hidden transition-all duration-200 ${
+              canScrollRight
+                ? "bg-[#D9DADB] text-[#23262B] hover:bg-[#c7c9cb]"
+                : "bg-[#b4b4b4] text-[#6b6b6b] cursor-not-allowed"
+            }`}
           />
         </div>
       </div>
