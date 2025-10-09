@@ -33,7 +33,7 @@ const navbar = () => {
     if (isLoading) {
         // Loader JSX
         return (
-            
+
             //  loader
             <div className="pt-28 px-4 ">
                 <div className="flex flex-col items-center justify-center h-[50vh] bg-[#1B1E24] text-white rounded-lg mb-4 ">
@@ -233,7 +233,7 @@ const navbar = () => {
                         </p>
                     </div>
                 </div>
-                </aside>
+            </aside>
             {/* Main Search */}
         </div>
     );
