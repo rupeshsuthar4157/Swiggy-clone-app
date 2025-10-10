@@ -31,8 +31,8 @@ export default function Header() {
       <Link href="/offers" className="flex items-center gap-1 font-bold text-white  relative">
         Partner with us
       </Link>
-      <button className="border border-white rounded-lg px-3 py-3 flex items-center gap-2">
-        <Link href="/swiggy-super" className="flex items-center gap-1 font-bold text-sm text-white ">
+      <button className="border border-white rounded-lg px-5 py-4 flex items-center gap-2">
+        <Link href="/swiggy-super" className="flex items-center gap-1 font-bold text-[16px] text-white ">
           Get The App
         </Link>
         <span
@@ -58,7 +58,7 @@ export default function Header() {
           {navLinks}
           <button
             onClick={() => setIsSidebarOpen(true)}
-            className="bg-black rounded-[12px] px-7 py-2 font-bold text-white flex items-center gap-1"
+            className="bg-black rounded-[12px] px-10 py-4 font-bold text-white flex items-center gap-1 cursor-pointer"
           >
             Sign In
           </button>
@@ -75,7 +75,7 @@ export default function Header() {
       {(isSidebarOpen || isMobileMenuOpen) && (
         <div
           onClick={closeSidebar}
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 "
         />
       )}
 
@@ -83,7 +83,7 @@ export default function Header() {
         className={`fixed top-0 right-0 h-full w-full sm:w-2/3 md:w-1/3 bg-white shadow-lg z-50 transform transition-transform duration-300 ${isSidebarOpen || isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
       >
-        <div className="flex justify-end p-4">
+        <div className="flex justify-start p-4 text-gray-500 mt-4">
           <button onClick={closeSidebar}>
             <X size={28} />
           </button>

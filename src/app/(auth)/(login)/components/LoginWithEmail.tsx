@@ -1,7 +1,7 @@
 /**
  * @author Suresh Jangid
- * @LastModified Thu Oct 9-10-2025 AT 4:9:00 PM
- * 
+ * @LastModified Thu Oct 9-10-2025 AT 4:09 PM
+ *
  */
 
 "use client";
@@ -14,129 +14,143 @@ import { useRouter } from "next/navigation";
 import { route } from "@/businessLogic/web/routes/route";
 
 interface LoginFormProps {
-    setIsCreateAccount: (value: boolean) => void;
+  setIsCreateAccount: (value: boolean) => void;
 }
 
 interface ILoginWithEmailPayload {
-    email: string;
-    password: string;
+  email: string;
+  password: string;
 }
 
 export default function LoginForm({ setIsCreateAccount }: LoginFormProps) {
-    const router = useRouter();
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    const loginMutation = useMutation({
-        mutationKey: ["login"],
-        mutationFn: async (payload: ILoginWithEmailPayload) =>
-            login({
-                email: payload.email,
-                password: payload.password,
-            }),
-        onSuccess: (data) => {
-            if (data?.type === "success") {
-                toast.success("Login successfully");
-                setTimeout(() => {
-                    router.push(route.home);
-                }, 1000);
-            } else {
-                toast.error(data?.message || "Something went wrong");
-            }
-        },
-        onError: (err: any) => {
-            toast.error(err?.message || "Something went wrong");
-        },
-    });
+  const loginMutation = useMutation({
+    mutationKey: ["login"],
+    mutationFn: async (payload: ILoginWithEmailPayload) =>
+      login({
+        email: payload.email,
+        password: payload.password,
+      }),
+    onSuccess: (data) => {
+      if (data?.type === "success") {
+        toast.success("Login successfully");
+        setTimeout(() => {
+          router.push(route.home);
+        }, 1000);
+      } else {
+        toast.error(data?.message || "Something went wrong");
+      }
+    },
+    onError: (err: any) => {
+      toast.error(err?.message || "Something went wrong");
+    },
+  });
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
 
-        if (!email || !password) {
-            toast.error("Please enter a valid email and password");
-            return;
-        }
+    if (!email || !password) {
+      toast.error("Please enter a valid email and password");
+      return;
+    }
 
-        setLoading(true);
-        loginMutation.mutate(
-            { email, password },
-            {
-                onSettled: () => setLoading(false),
-            }
-        );
-    };
-
-    return (
-        <>
-            <Image
-                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/Image-login_btpq7r"
-                alt="Login Banner"
-                height={200}
-                width={400}
-                className="w-full max-h-34 object-contain mb-6"
-            />
-            {error && <p className="text-red-500 mb-2">{error}</p>}
-
-            <h2 className="text-xl md:text-2xl text-black font-bold mb-1">Login</h2>
-            <p
-                className="text-[#FF5210] text-sm font-semibold mb-4 cursor-pointer"
-                onClick={() => setIsCreateAccount(true)}
-            >
-                <span className="text-black">or</span> create an account
-            </p>
-
-            <div className="w-full h-0.5 bg-black mb-4"></div>
-
-            <form onSubmit={handleSubmit} className="w-full">
-                <div className="relative w-full mt-4">
-                    <input
-                        type="email"
-                        id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder=" "
-                        className="peer w-full rounded-xl border border-gray-300 bg-white px-4 pt-5 pb-2 text-base text-gray-800 placeholder-transparent shadow-sm transition-all duration-200 ease-in-out focus:border-[#FF6F00] focus:ring-2 focus:ring-[#FF6F00]/40 focus:outline-none"
-                    />
-                    <label
-                        htmlFor="email"
-                        className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-base  transition-all duration-200 ease-in-out 
-                        peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-gray-400 
-                        peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm peer-focus:text-[#FF6F00]"
-                    >
-                        Email Address
-                    </label>
-                </div>
-
-
-                <div className="relative mt-4 w-full">
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        className="peer w-full border rounded-md border-[#CCCDCE] px-4 pt-6 pb-2 text-base placeholder-transparent focus:outline-none text-gray-500 focus:text-black"
-                        placeholder="Password"
-                    />
-                    <label
-                        htmlFor="password"
-                        className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 transition-all
-               peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400
-              peer-focus:top-2 peer-focus:text-sm peer-focus:text-black"
-                    >
-                        Password
-                    </label>
-                </div>
-
-                <button
-                    type="submit"
-                    className="mt-6 w-full bg-[#FF5504] text-white font-bold py-3 rounded-md"
-                    disabled={loading}
-                >
-                    {loading ? "Please wait..." : "Login"}
-                </button>
-            </form>
-        </>
+    setLoading(true);
+    loginMutation.mutate(
+      { email, password },
+      {
+        onSettled: () => setLoading(false),
+      }
     );
+  };
+
+  return (
+    <>
+      <div className="absolute top-20 left-1/2 -translate-x-1/2">
+        <Image
+          src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/Image-login_btpq7r"
+          alt="Login Banner"
+          height={100}
+          width={200}
+          className="w-29 object-contain"
+        />
+      </div>
+
+      {error && <p className="text-red-500 mb-2">{error}</p>}
+
+      <h2 className="text-xl md:text-3xl text-black font-bold mt-3">Login</h2>
+
+      <p
+        className="text-[#FF5210] text-sm font-semibold mb-4 cursor-pointer"
+        onClick={() => setIsCreateAccount(true)}
+      >
+        <span className="text-black">or</span> create an account
+      </p>
+
+      <div className="w-12 h-0.5 bg-black mb-4"></div>
+
+      <form onSubmit={handleSubmit} className="w-full">
+        <div className="relative w-full mt-4">
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder=" "
+            required
+            className="peer w-86 border border-gray-300 bg-transparent px-4 py-10 pb-2 text-base text-gray-800 placeholder-transparent  transition-all duration-200 ease-in-out focus:outline-none autofill:bg-transparent autofill:shadow-[inset_0_0_0px_1000px_white]"
+          />
+          <label
+            htmlFor="email"
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-base transition-all duration-200 ease-in-out 
+      peer-placeholder-shown:top-1/2
+      peer-focus:top-2 peer-focus:text-sm 
+      peer-valid:top-2 peer-valid:text-sm "
+          >
+            Email Address
+          </label>
+        </div>
+
+        <div className="relative w-full">
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="peer w-86 border border-[#CCCDCE] px-4 py-10 pb-2 text-base text-gray-800 focus:outline-none "
+            placeholder=" "
+          />
+          <label
+            htmlFor="password"
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 transition-all duration-200
+    peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400
+    peer-focus:top-2 peer-focus:text-sm 
+    peer-valid:top-2 peer-valid:text-sm "
+          >
+            Password
+          </label>
+        </div>
+
+        <button
+          type="submit"
+          className="mt-6 w-86 bg-[#FF5200] text-white font-bold py-3 "
+          disabled={loading}
+        >
+          {loading ? "Please wait..." : "Login"}
+        </button>
+        <p className="mt-3 text-xs text-[#02060C] leading-snug font-semibold">
+          <span className="text-[#4D5054]">
+            By clicking on Login, I accept the
+          </span>{" "}
+          <span className=" text-black cursor-pointer">Terms & Conditions</span> &{" "} <br />
+          <span className="text-black cursor-pointer">Privacy Policy</span>
+        </p>
+      </form>
+    </>
+  );
 }
