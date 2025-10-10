@@ -1,6 +1,7 @@
 "use client";
 import React, { forwardRef } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 
 const RideWithSwiggyTwo = forwardRef<HTMLDivElement>((props, ref) => {
@@ -27,9 +28,12 @@ const RideWithSwiggyTwo = forwardRef<HTMLDivElement>((props, ref) => {
             <p className="mt-4 text-[#1F2125] text-base md:text-lg leading-relaxed">
               {text}
             </p>
-            <button className="mt-6 bg-[#FF5A1F] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#e04d1a] transition-all duration-200 w-max">
+            <Link
+            href={"https://ride.swiggy.com/"}>
+              <button className="mt-6 bg-[#FF5A1F] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#e04d1a] transition-all duration-200 w-max">
               {buttonText}
             </button>
+              </Link>
             </motion.div>
           </div>
           

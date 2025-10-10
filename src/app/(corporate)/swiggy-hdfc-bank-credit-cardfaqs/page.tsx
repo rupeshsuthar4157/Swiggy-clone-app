@@ -7,6 +7,7 @@ import Bonusbenefits from "./components/Bonusbenefits";
 import KeyDetails from "./components/Keydetails";
 import ScantheQRcode from "./components/ScantheQRcode";
 import Frequentlyquestions from './components/Frequentlyquestions'
+import Footer from "@/app/components/Header/Footer";
 
 const page = () => {
   return (
@@ -19,6 +20,7 @@ const page = () => {
       <KeyDetails/>
       <ScantheQRcode/>
       <Frequentlyquestions/>
+      <Footer/>
     </div>
   );
 };

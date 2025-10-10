@@ -70,7 +70,7 @@ export default function HeroSection() {
               <ChevronDown
                 className={`transition-transform duration-200 ${isOpen ? "rotate-180" : "rotate-0"
                   }`}
-                size={22}
+                size={25}
               />
             </button>
 
