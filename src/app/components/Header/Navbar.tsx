@@ -9,7 +9,12 @@ import SignupLoginForm from "@/app/components/Header/SignUAndLoginForm";
 export default function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isCreateAccount, setIsCreateAccount] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); type Props = {
+    isCreateAccount: boolean;
+    setIsCreateAccount: React.Dispatch<React.SetStateAction<boolean>>;
+  };
+
+
 
   const closeSidebar = () => {
     setIsSidebarOpen(false);
