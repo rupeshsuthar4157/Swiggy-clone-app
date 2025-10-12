@@ -50,7 +50,7 @@ const Slider = () => {
         <div className="flex gap-3 sm:gap-4">
           {/* Left Arrow */}
           <ArrowLeft
-            size={36}
+            size={38}
             onClick={() => canScrollLeft && scroll("left")}
             className={`p-2 rounded-full cursor-pointer md:block hidden transition-all duration-200 ${
               canScrollLeft
@@ -60,7 +60,7 @@ const Slider = () => {
           />
           {/* Right Arrow */}
           <ArrowRight
-            size={36}
+            size={38}
             onClick={() => canScrollRight && scroll("right")}
             className={`p-2 rounded-full cursor-pointer md:block hidden transition-all duration-200 ${
               canScrollRight
@@ -81,14 +81,14 @@ const Slider = () => {
                 alt={`Food item ${index + 1}`}
                 width={180}
                 height={180}
-                className="w-[100px] sm:w-[100px] md:w-[160px] lg:w-[180px] h-auto rounded-lg object-cover"
+                className="w-[100px] sm:w-[100px] md:w-[160px] lg:w-[180px] h-auto rounded-lg object-cover select-none pointer-events-none"
               />
               <Image
                 src={breakfastImagesDuplicate[index]}
                 alt={`Food item ${index + 1} duplicate`}
                 width={180}
                 height={180}
-                className="w-[100px] sm:w-[100px] md:w-[160px] lg:w-[180px] h-auto rounded-lg object-cover"
+                className="w-[100px] sm:w-[100px] md:w-[160px] lg:w-[180px] h-auto rounded-lg object-cover select-none pointer-events-none"
               />
             </div>
           ))}

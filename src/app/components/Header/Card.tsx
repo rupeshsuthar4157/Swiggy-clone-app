@@ -27,12 +27,12 @@ const Card = () => {
         <div className="flex gap-4 md:flex ">
           <ArrowLeft
             className="bg-[#D9DADB] text-[#23262B] p-2 rounded-full cursor-pointer md:block hidden"
-            size={38}
+            size={40}
             onClick={() => scroll("left")}
           />
           <ArrowRight
             className="bg-[#D9DADB] text-[#23262B] p-2 rounded-full cursor-pointer md:block hidden"
-            size={38}
+            size={40}
             onClick={() => scroll("right")}
           />
         </div>

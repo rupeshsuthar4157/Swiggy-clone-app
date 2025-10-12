@@ -42,7 +42,7 @@ const Slidebar2 = () => {
             onClick={() => scroll("left")}
           />
           <ArrowRight
-            className="bg-[#D9DADB] text-[#23262B] p-2 rounded-full cursor-pointer hover:bg-[#c4c5c6] md:block hidden"
+            className="bg-[#D9DADB] text-[#23262B] p-2 rounded-full cursor-pointer hover:bg-[#c4c5c6] md:block hidden "
             size={38}
             onClick={() => scroll("right")}
           />
@@ -64,7 +64,7 @@ const Slidebar2 = () => {
                 alt={`Food item ${index + 1}`}
                 width={300}
                 height={500}
-                className="w-[100px] sm:w-[120px] md:w-[160px] lg:w-[154px] h-auto rounded-lg object-cover"
+                className="w-[100px] sm:w-[120px] md:w-[160px] lg:w-[154px] h-auto rounded-lg object-cover select-none pointer-events-none"
               />
             </div>
           ))}
