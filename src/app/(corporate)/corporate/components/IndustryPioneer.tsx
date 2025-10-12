@@ -14,6 +14,8 @@ const data = [
 const IndustryPioneer = () => {
     return (
         <>
+        <section className="max-w-6xl mx-auto px-4">
+
             <div className="flex flex-col md:flex-row justify-between items-center gap-10 overflow-hidden">
                 <motion.div
                     className="max-w-2xl"
@@ -33,14 +35,15 @@ const IndustryPioneer = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2, ease: "easeOut" }}
                     viewport={{ once: true }}
-                >
+                    >
                     <img
                         src="https://i.imgur.com/13mwtT7.png"
                         alt="img"
                         className="w-[320px] h-[320px] object-contain"
-                    />
+                        />
                 </motion.div>
             </div>
+                        </section>
             <Count />
         </>
     );

@@ -1,6 +1,6 @@
 /**
- * @author Suresh Jangid
- * @LastModified Thu Oct 9-10-2025 AT 4:09 PM
+ * @author Rupesh Suthar
+ * @LastModified 
  *
  */
 
@@ -147,7 +147,8 @@ export default function LoginForm({ setIsCreateAccount }: LoginFormProps) {
           <span className="text-[#4D5054]">
             By clicking on Login, I accept the
           </span>{" "}
-          <span className=" text-black cursor-pointer">Terms & Conditions</span> &{" "} <br />
+          <span className=" text-black cursor-pointer">Terms & Conditions</span>{" "}
+          & <br />
           <span className="text-black cursor-pointer">Privacy Policy</span>
         </p>
       </form>

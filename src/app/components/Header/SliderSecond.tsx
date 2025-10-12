@@ -87,7 +87,7 @@ const SliderSecond = () => {
                 alt={item.name}
                 width={400}
                 height={400}
-                className="w-[100px] sm:w-[100px] md:w-[160px] lg:w-[180px] h-auto rounded-lg object-cover"
+                className="w-[100px] sm:w-[100px] md:w-[160px] lg:w-[180px] h-auto rounded-lg object-cover select-none pointer-events-none"
               />
               <p className="font-medium sm:font-semibold text-sm sm:text-base md:text-lg text-[rgba(2,6,12,0.75)] text-center">
                 {item.name}
