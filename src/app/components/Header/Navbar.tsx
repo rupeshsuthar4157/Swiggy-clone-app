@@ -1,6 +1,13 @@
 "use client";
-
-import { Menu, X, User, MoveUpRight } from "lucide-react";
+import { TiHome } from "react-icons/ti";
+import {
+  Menu,
+  X,
+  User,
+  MoveUpRight,
+  Home,
+  ChevronDown,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -10,10 +17,6 @@ export default function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isCreateAccount, setIsCreateAccount] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  type Props = {
-    isCreateAccount: boolean;
-    setIsCreateAccount: React.Dispatch<React.SetStateAction<boolean>>;
-  };
 
   const closeSidebar = () => {
     setIsSidebarOpen(false);
@@ -25,100 +28,151 @@ export default function Header() {
     <>
       <Link
         href="/corporate"
-        className="flex items-center gap-1 font-bold text-white "
+        className="flex items-center gap-1 font-semibold text-white hover:text-gray-200 transition-colors"
       >
         Swiggy Corporate
       </Link>
 
       <Link
-        href="/offers"
-        className="flex items-center gap-1 font-bold text-white  relative"
+        href="/partner"
+        className="flex items-center gap-1 font-semibold text-white hover:text-gray-200 transition-colors"
       >
         Partner with us
       </Link>
-      <button className="border border-white rounded-lg px-5 py-4 flex items-center gap-2">
+
+      <button className="border border-white rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-white/10 transition">
         <Link
-          href="/swiggy-super"
-          className="flex items-center gap-1 font-bold text-[16px] text-white "
+          href="/get-app"
+          className="flex items-center gap-1 font-semibold text-[16px] text-white"
         >
           Get The App
         </Link>
-        <span>
-          <MoveUpRight size={12} />
-        </span>
+        <MoveUpRight size={18} className="text-white font-bold" />
       </button>
     </>
   );
 
   return (
-    <div className="bg-[#FF5200]">
-      <header className="flex justify-between items-center container mx-auto px-4 py-3 md:px-8 md:py-5">
-        <Link href="/" className="flex items-center">
-          <Image
-            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/static-assets/images/swiggy_logo_white.png"
-            alt="Logo"
-            width={150}
-            height={40}
-          />
-        </Link>
+    <div className="bg-[#FF5200] w-full">
+      <header className="flex justify-between items-center container mx-auto px-4 py-3 md:px-8 md:py-4">
+        {/* ✅ Logo (Desktop) / Home (Mobile) */}
+        <div className="flex items-center">
+          {/* Desktop Logo */}
+          <Link href="/" className="hidden sm:block">
+            <Image
+              src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/static-assets/images/swiggy_logo_white.png"
+              alt="Swiggy Logo"
+              width={150}
+              height={40}
+              priority
+            />
+          </Link>
 
+          {/* Mobile Home Section */}
+          <Link href="/search" className="sm:hidden">
+            <div className="flex flex-col gap-1 text-white">
+              <div className="flex items-center gap-2">
+                < TiHome  size={24} />
+                <p className="font-semibold text-[15px]">Home</p>
+                <ChevronDown size={22} />
+              </div>
+              <p className="text-xs text-gray-100 truncate w-44">
+                Temple Tree Apartment Road, Halasuru
+              </p>
+            </div>
+          </Link>
+        </div>
+
+        {/* ✅ Desktop Nav */}
         <div className="hidden sm:flex items-center gap-6">
           {navLinks}
           <button
             onClick={() => setIsSidebarOpen(true)}
-            className="bg-black rounded-[12px] px-10 py-4 font-bold text-white flex items-center gap-1 cursor-pointer"
+            className="bg-black rounded-lg px-8 py-3 font-semibold text-white flex items-center gap-1 hover:bg-gray-800 transition"
           >
+            <User size={18} />
             Sign In
           </button>
         </div>
 
+        {/* ✅ Mobile Menu / Profile Icon */}
         <button
           onClick={() => setIsMobileMenuOpen(true)}
-          className="sm:hidden text-white p-2"
+          className="sm:hidden bg-black rounded-full flex items-center justify-center w-10 h-10 cursor-pointer hover:scale-105 transition-transform"
         >
-          <Menu size={28} />
+          <User className="text-white" size={20} />
         </button>
       </header>
 
+      {/* ✅ Overlay Background */}
       {(isSidebarOpen || isMobileMenuOpen) && (
         <div
           onClick={closeSidebar}
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 "
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
         />
       )}
 
+      {/* ✅ Sidebar / Drawer */}
       <aside
-        className={`fixed top-0 right-0 h-full w-full sm:w-2/3 md:w-1/3 bg-white shadow-lg z-50 transform transition-transform duration-300 ${
+        className={`fixed top-0 right-0 h-full w-11/12 sm:w-2/3 md:w-1/3 bg-white z-50 shadow-lg transform transition-transform duration-300 ease-in-out ${
           isSidebarOpen || isMobileMenuOpen
             ? "translate-x-0"
             : "translate-x-full"
         }`}
       >
-        <div className="flex justify-start p-4 text-gray-500 mt-4">
+        {/* Header Close Button */}
+        <div className="flex justify-between items-center p-4 border-b">
+          <h2 className="font-semibold text-gray-700 text-lg">
+            {isSidebarOpen ? "Welcome Back" : "Menu"}
+          </h2>
           <button onClick={closeSidebar}>
-            <X size={28} />
+            <X size={26} className="text-gray-600 hover:text-black" />
           </button>
         </div>
 
-        {isSidebarOpen ? (
-          <SignupLoginForm
-            isCreateAccount={isCreateAccount}
-            setIsCreateAccount={setIsCreateAccount}
-          />
-        ) : (
-          <nav className="flex flex-col gap-4 p-6">
-            {navLinks}
-            <button
-              onClick={() => {
-                setIsSidebarOpen(true);
-                setIsMobileMenuOpen(false);
-              }}
-              className="mt-4 w-full bg-[#FF5504] text-white font-bold py-3 rounded-md flex items-center justify-center gap-1"
-            >
-              <User size={18} /> Sign In
-            </button>
-          </nav>
-        )}
+        {/* Sidebar Content */}
+        <div className="p-6">
+          {isSidebarOpen ? (
+            <SignupLoginForm
+              isCreateAccount={isCreateAccount}
+              setIsCreateAccount={setIsCreateAccount}
+            />
+          ) : (
+            <>
+              <nav className="flex flex-col gap-5">
+                <Link
+                  href="/corporate"
+                  className="text-gray-700 font-medium hover:text-[#FF5200]"
+                >
+                  Swiggy Corporate
+                </Link>
+                <Link
+                  href="/partner"
+                  className="text-gray-700 font-medium hover:text-[#FF5200]"
+                >
+                  Partner with us
+                </Link>
+                <Link
+                  href="/get-app"
+                  className="text-gray-700 font-medium hover:text-[#FF5200]"
+                >
+                  Get The App
+                </Link>
+              </nav>
+
+              <button
+                onClick={() => {
+                  setIsSidebarOpen(true);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="mt-8 w-full bg-[#FF5200] text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-[#e64a00] transition"
+              >
+                <User size={18} />
+                Sign In
+              </button>
+            </>
+          )}
+        </div>
       </aside>
     </div>
   );

@@ -8,7 +8,6 @@ const locations = [
   "No.3275/A, 12th Main Rd, Bangalore",
   "Use my current location",
   "Recent searches",
-  "Recent searches",
   "Pizza 4P's Indiranagar, 12th Main Road, HAL 2nd Stage, Ward 72, Domlur, Bengaluru, Karna...",
 ];
 
@@ -16,14 +15,23 @@ const banners = [
   {
     url: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/ec86a309-9b06-48e2-9adc-35753f06bc0a_Food3BU.png",
     route: "/restaurants",
+    title: "FOOD DELIVERY",
+    subtitle: "FROM RESTAURANTS",
+    offer: "UP TO 60% OFF",
   },
   {
     url: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/b5c57bbf-df54-4dad-95d1-62e3a7a8424d_IM3BU.png",
     route: "/instamart",
+    title: "INSTAMART",
+    subtitle: "THE EVERYTHING STORE",
+    offer: "FREE DELIVERY",
   },
   {
     url: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/b6d9b7ab-91c7-4f72-9bf2-fcd4ceec3537_DO3BU.png",
     route: "/dineout",
+    title: "DINEOUT",
+    subtitle: "EAT OUT & SAVE MORE",
+    offer: "UP TO 50% OFF",
   },
 ];
 
@@ -35,16 +43,17 @@ export default function HeroSection() {
 
   return (
     <section className="bg-[#FF5200]">
+      {/* ===== Top Section ===== */}
       <section className="relative py-12 px-4 md:py-16 lg:py-20 md:px-6 lg:px-10">
-        <h1 className="text-white text-2xl md:text-3xl lg:text-[45px] text-center font-semibold mb-6 leading-snug">
-          Order food & groceries. Discover{" "}
-          <br className="hidden lg:block" />
+        <h1 className="hidden md:block text-white text-2xl md:text-3xl lg:text-[45px] text-center font-semibold mb-6 leading-snug">
+          Order food & groceries. Discover <br className="hidden lg:block" />
           best restaurants. Swiggy it!
         </h1>
 
+        {/* ===== Search + Location (Desktop) ===== */}
         <div className="flex flex-col md:flex-row justify-center items-center gap-3 md:gap-4 max-w-4xl mx-auto mb-6 w-full">
-
-          <div className="relative w-full md:w-[260px] lg:w-[300px]">
+          {/* Location Dropdown */}
+          <div className="hidden md:block w-full md:w-[260px] lg:w-[300px]">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="w-full flex items-center justify-between text-sm md:text-base lg:text-lg bg-white px-3 py-3 lg:px-4 lg:py-4 rounded-xl lg:rounded-2xl border border-gray-300 text-[#676A6D] font-semibold focus:outline-none focus:ring-2 focus:ring-orange-500"
@@ -68,13 +77,13 @@ export default function HeroSection() {
                 <span className="truncate">{selectedLocation}</span>
               </span>
               <ChevronDown
-                className={`transition-transform duration-200 ${isOpen ? "rotate-180" : "rotate-0"
-                  }`}
+                className={`transition-transform duration-200 ${
+                  isOpen ? "rotate-180" : "rotate-0"
+                }`}
                 size={22}
               />
             </button>
 
-            {/* Dropdown List */}
             {isOpen && (
               <ul className="absolute mt-2 w-90 md:w-190 bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-64 overflow-auto">
                 {locations.map((loc, idx) => (
@@ -84,10 +93,11 @@ export default function HeroSection() {
                       setSelectedLocation(loc);
                       setIsOpen(false);
                     }}
-                    className={`px-4 py-3 cursor-pointer text-sm md:text-base lg:text-lg truncate hover:bg-gray-100 ${loc === "Use my current location"
+                    className={`px-4 py-3 cursor-pointer text-sm md:text-base lg:text-lg truncate hover:bg-gray-100 ${
+                      loc === "Use my current location"
                         ? "text-orange-500"
                         : "text-gray-800"
-                      }`}
+                    }`}
                   >
                     {loc}
                     {loc === "Use my current location" && (
@@ -99,18 +109,13 @@ export default function HeroSection() {
             )}
           </div>
 
-          {/* Search Bar with redirect */}
+          {/* Search Input */}
           <div className="relative w-full md:w-[380px] lg:w-[480px]">
             <input
               type="text"
               placeholder="Search for restaurant, item or more"
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  router.push("/search");
-                }
-              }}
               onClick={(e) => {
                 e.preventDefault();
                 router.push("/search");
@@ -119,14 +124,60 @@ export default function HeroSection() {
               readOnly
             />
             <Search
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 cursor-alias"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer"
               size={18}
               onClick={() => router.push("/search")}
             />
           </div>
         </div>
 
-        {/* Side Images (desktop only) */}
+        {/* ===== Mobile Heading + Image ===== */}
+        <div className="flex items-center justify-center gap-3 lg:hidden mb-6 px-4 text-center">
+          <h1 className="text-white text-base sm:text-lg font-semibold leading-snug">
+            Order food & groceries. <br /> Discover best restaurants.
+          </h1>
+          <img
+            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/6/19/ca322ced-2d4f-4a43-a8c6-b7e07de76bfa_DEmweb.png"
+            alt="Food Icon"
+            width={100}
+            height={100}
+            className="object-contain"
+          />
+        </div>
+
+        {/* ===== Mobile Banner Cards ===== */}
+        <div className="flex flex-col items-center gap-4 lg:hidden px-6 mb-8">
+          {banners.map((banner, idx) => (
+            <div
+              key={idx}
+              onClick={() => router.push(banner.route)}
+              className="w-full bg-white rounded-2xl overflow-hidden shadow-md flex justify-between items-center p-4 cursor-pointer"
+            >
+              <div>
+                <h2 className="text-gray-800 font-bold text-sm">
+                  {banner.title}
+                </h2>
+                <p className="text-gray-500 text-xs">{banner.subtitle}</p>
+                <p
+                  className={`text-sm font-semibold mt-1 ${
+                    idx === 1 ? "text-orange-500" : "text-red-500"
+                  }`}
+                >
+                  {banner.offer}
+                </p>
+              </div>
+              <img
+                src={banner.url}
+                alt={banner.title}
+                width={100}
+                height={80}
+                className="object-cover rounded-lg"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* ===== Side Images (Desktop only) ===== */}
         <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[450px]">
           <Image
             src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Veggies_new.png"
@@ -145,8 +196,8 @@ export default function HeroSection() {
         </div>
       </section>
 
-      {/* Banner Section */}
-      <section className="relative bottom-6 md:bottom-10 lg:bottom-16 px-4">
+      {/* ===== Desktop Banner Section ===== */}
+      <section className="hidden md:block lg:block relative bottom-6 md:bottom-10 lg:bottom-16 px-4">
         <div className="flex flex-col md:flex-row justify-center items-center gap-3 lg:gap-6 mx-auto max-w-6xl">
           {banners.map((banner, idx) => (
             <div
