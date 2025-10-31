@@ -304,7 +304,39 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(110deg,
+      #e8e8e8 0%,
+      #e8e8e8 40%,
+      #ffffff 50%,
+      #e8e8e8 60%,
+      #e8e8e8 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.dark .skeleton {
+  background: linear-gradient(110deg,
+      #1f1f1f 0%,
+      #1f1f1f 40%,
+      #2a2a2a 50%,
+      #1f1f1f 60%,
+      #1f1f1f 100%);
 }
