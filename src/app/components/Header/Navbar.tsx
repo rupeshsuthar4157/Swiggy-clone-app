@@ -1,11 +1,9 @@
 "use client";
 import { TiHome } from "react-icons/ti";
 import {
-  Menu,
+  ArrowUpRight,
   X,
   User,
-  MoveUpRight,
-  Home,
   ChevronDown,
 } from "lucide-react";
 import Image from "next/image";
@@ -24,30 +22,39 @@ export default function Header() {
     setIsMobileMenuOpen(false);
   };
 
+  // ✅ Scroll to #scan-section when clicking "Get The App"
+  const handleScrollToAppSection = () => {
+    const section = document.getElementById("scan-section");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const navLinks = (
     <>
       <Link
         href="/corporate"
-        className="flex items-center gap-1 font-semibold text-white hover:text-gray-200 transition-colors"
+        className="flex items-center gap-1 font-semibold text-white hover:text-gray-200 transition-colors mt-3"
       >
         Swiggy Corporate
       </Link>
 
       <Link
-        href="/partner"
-        className="flex items-center gap-1 font-semibold text-white hover:text-gray-200 transition-colors"
+        href="https://partner.swiggy.com/login#/swiggy"
+        className="flex items-center gap-1 font-semibold text-white hover:text-gray-200 transition-colors mt-3"
       >
         Partner with us
       </Link>
 
-      <button className="border border-white rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-white/10 transition">
-        <Link
-          href="/get-app"
-          className="flex items-center gap-1 font-semibold text-[16px] text-white"
-        >
+      {/* ✅ Scroll to scan-section on click */}
+      <button
+        onClick={handleScrollToAppSection}
+        className="border border-white rounded-lg px-4 py-3.5 flex items-center gap-2 transition mt-3"
+      >
+        <span className="font-semibold text-[16px] text-white">
           Get The App
-        </Link>
-        <MoveUpRight size={18} className="text-white font-bold" />
+        </span>
+        <ArrowUpRight size={28} className="text-white font-bold" />
       </button>
     </>
   );
@@ -58,11 +65,11 @@ export default function Header() {
         {/* ✅ Logo (Desktop) / Home (Mobile) */}
         <div className="flex items-center">
           {/* Desktop Logo */}
-          <Link href="/" className="hidden sm:block">
+          <Link href="/" className="hidden sm:block mt-3">
             <Image
               src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/static-assets/images/swiggy_logo_white.png"
               alt="Swiggy Logo"
-              width={150}
+              width={160}
               height={40}
               priority
             />
@@ -72,7 +79,7 @@ export default function Header() {
           <Link href="/search" className="sm:hidden">
             <div className="flex flex-col gap-1 text-white">
               <div className="flex items-center gap-2">
-                < TiHome  size={24} />
+                <TiHome size={24} />
                 <p className="font-semibold text-[15px]">Home</p>
                 <ChevronDown size={22} />
               </div>
@@ -88,9 +95,8 @@ export default function Header() {
           {navLinks}
           <button
             onClick={() => setIsSidebarOpen(true)}
-            className="bg-black rounded-lg px-8 py-3 font-semibold text-white flex items-center gap-1 hover:bg-gray-800 transition"
+            className="bg-black rounded-xl px-9 py-4 font-bold text-white flex items-center gap-1 transition mt-3"
           >
-            <User size={18} />
             Sign In
           </button>
         </div>
@@ -152,12 +158,17 @@ export default function Header() {
                 >
                   Partner with us
                 </Link>
-                <Link
-                  href="/get-app"
-                  className="text-gray-700 font-medium hover:text-[#FF5200]"
+
+                {/* ✅ Mobile "Get The App" scroll */}
+                <button
+                  onClick={() => {
+                    closeSidebar();
+                    handleScrollToAppSection();
+                  }}
+                  className="text-gray-700 font-medium hover:text-[#FF5200] text-left"
                 >
                   Get The App
-                </Link>
+                </button>
               </nav>
 
               <button

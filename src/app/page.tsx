@@ -6,6 +6,7 @@ import Scan from "./components/Header/Scan";
 import Text from "./components/Header/Text";
 import Navbar from "./components/Header/Navbar";
 import Footer from "./components/Header/Footer";
+import MobileBottomBar from "./components/Header/MobileBottomBar";
 export default function Home() {
   return (
     <div className="overflow-x-hidden">
@@ -17,6 +18,7 @@ export default function Home() {
       <Scan />
       <Text />
       <Footer />
+      <MobileBottomBar/>
     </div>
   );
 }

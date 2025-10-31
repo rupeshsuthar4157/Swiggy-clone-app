@@ -42,7 +42,7 @@ export default function HeroSection() {
   const router = useRouter();
 
   return (
-    <section className="bg-[#FF5200]">
+    <section className="bg-[#FF5200] ">
       {/* ===== Top Section ===== */}
       <section className="relative py-12 px-4 md:py-16 lg:py-20 md:px-6 lg:px-10">
         <h1 className="hidden md:block text-white text-2xl md:text-3xl lg:text-[45px] text-center font-semibold mb-6 leading-snug">

@@ -22,7 +22,7 @@ const Page = () => {
     return (
         <div className="bg-white min-h-screen relative">
             {/* Navbar */}
-            <header className="w-full shadow-sm bg-white">
+            <header className="hidden md:block w-full shadow-sm bg-white">
                 <div className="container mx-auto flex items-center justify-between px-4 md:px-10 py-3 flex-wrap gap-4">
                     <div className="flex items-center gap-4">
                         <Link href="/">
@@ -195,7 +195,7 @@ const Page = () => {
                     <input
                         type="text"
                         placeholder="Search for restaurants and food"
-                        className="flex-grow px-4 py-3 text-[#777777] rounded-md outline-none font-medium"
+                        className="flex-grow px-4 py-3 text-[#676A6D] rounded-md outline-none font-semibold"
                     />
                     <button className="px-3 text-gray-500 hover:text-orange-500">
                         <Search size={18} />
