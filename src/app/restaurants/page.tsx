@@ -22,7 +22,7 @@ import { usePathname } from "next/navigation";
 
 const Page = () => {
     const pathname = usePathname();
-    const [isLoading, setIsLoading] = useState(false); // Loader state
+    const [isLoading, setIsLoading] = useState(true); // Loader state
     const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Left sidebar
     const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false); // Right sidebar
 
