@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, X, User, MoveUpRight } from "lucide-react";
+import { Menu, X, User, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -44,7 +44,8 @@ export default function Header() {
           Get The App
         </Link>
         <span>
-          <MoveUpRight size={12} />
+           <ArrowUpRight size={30} 
+          className="text-white font-bold"/>
         </span>
       </button>
     </>

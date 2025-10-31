@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import LoginWithEmail from "@/app/(auth)/(login)/components/LoginWithEmail";
+import LoginWithEmail from "@/app/(auth)/(login)/components/LoginWithEmail"
 import SignupForm from "./Signup";
 
 export default function SignupFormWrapper() {

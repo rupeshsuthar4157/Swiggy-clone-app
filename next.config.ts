@@ -50,8 +50,13 @@ const nextConfig: NextConfig = {
         hostname: "img.restaurantguru.com",
         port: "",
         pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "*.amazonaws.com",
+        port: "",
+        pathname: "/**",
       }
-
     ],
   },
 };

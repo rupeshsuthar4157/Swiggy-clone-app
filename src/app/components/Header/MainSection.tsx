@@ -37,13 +37,11 @@ export default function HeroSection() {
     <section className="bg-[#FF5200]">
       <section className="relative py-12 px-4 md:py-16 lg:py-20 md:px-6 lg:px-10">
         <h1 className="text-white text-2xl md:text-3xl lg:text-[45px] text-center font-semibold mb-6 leading-snug">
-          Order food & groceries. Discover{" "}
-          <br className="hidden lg:block" />
+          Order food & groceries. Discover <br className="hidden lg:block" />
           best restaurants. Swiggy it!
         </h1>
 
         <div className="flex flex-col md:flex-row justify-center items-center gap-3 md:gap-4 max-w-4xl mx-auto mb-6 w-full">
-
           <div className="relative w-full md:w-[260px] lg:w-[300px]">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -68,8 +66,9 @@ export default function HeroSection() {
                 <span className="truncate">{selectedLocation}</span>
               </span>
               <ChevronDown
-                className={`transition-transform duration-200 ${isOpen ? "rotate-180" : "rotate-0"
-                  }`}
+                className={`transition-transform duration-200 ${
+                  isOpen ? "rotate-180" : "rotate-0"
+                }`}
                 size={22}
               />
             </button>
@@ -84,10 +83,11 @@ export default function HeroSection() {
                       setSelectedLocation(loc);
                       setIsOpen(false);
                     }}
-                    className={`px-4 py-3 cursor-pointer text-sm md:text-base lg:text-lg truncate hover:bg-gray-100 ${loc === "Use my current location"
+                    className={`px-4 py-3 cursor-pointer text-sm md:text-base lg:text-lg truncate hover:bg-gray-100 ${
+                      loc === "Use my current location"
                         ? "text-orange-500"
                         : "text-gray-800"
-                      }`}
+                    }`}
                   >
                     {loc}
                     {loc === "Use my current location" && (
