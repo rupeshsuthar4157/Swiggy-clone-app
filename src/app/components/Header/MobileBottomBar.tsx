@@ -2,6 +2,7 @@
 import { ChevronRight, Home, Search } from "lucide-react";
 import { SiSwiggy } from "react-icons/si";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function MobileBottomBar() {
   return (
@@ -43,10 +44,12 @@ export default function MobileBottomBar() {
           <SiSwiggy size={22} />
           <span className="text-xs font-medium">Swiggy</span>
         </button>
+        <Link href={"/search"}>
         <button className="flex flex-col items-center">
           <Search size={22} />
           <span className="text-xs font-medium">Search</span>
         </button>
+        </Link>
       </div>
     </div>
   );
