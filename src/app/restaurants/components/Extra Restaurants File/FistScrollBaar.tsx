@@ -29,7 +29,7 @@ const Slidebar2 = () => {
   };
 
   return (
-    <section className=" container mx-auto px-4 mt-13 sm:px-6 lg:px-8">
+    <section className="container mx-auto px-4 mt-18 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="flex justify-between items-center">
         <h2 className="font-bold text-lg sm:text-xl md:text-2xl text-[#02060C]">
