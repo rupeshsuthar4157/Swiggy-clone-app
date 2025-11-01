@@ -1,11 +1,8 @@
 "use client";
 import { TiHome } from "react-icons/ti";
-import {
-  ArrowUpRight,
-  X,
-  User,
-  ChevronDown,
-} from "lucide-react";
+import { FaUserLarge } from "react-icons/fa6";
+
+import { ArrowUpRight, X, User, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -106,7 +103,7 @@ export default function Header() {
           onClick={() => setIsMobileMenuOpen(true)}
           className="sm:hidden bg-black rounded-full flex items-center justify-center w-10 h-10 cursor-pointer hover:scale-105 transition-transform"
         >
-          <User className="text-white" size={20} />
+          <FaUserLarge size={18} className="text-white" />
         </button>
       </header>
 
