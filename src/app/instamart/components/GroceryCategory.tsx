@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Image from "next/image";
-import { slider1Products } from "../data/collections/slider1";
-import { slider2Products } from "../data/collections/slider2";
-import { slider3Products } from "../data/collections/slider3";
-import { slider4Products } from "../data/collections/slider4";
-import { slider5Products } from "../data/collections/slider5";
-import { slider6Products } from "../data/collections/slider6";
-import { Product } from "../data/types";
+import { slider1Products } from "../../data/collections/slider1";
+import { slider2Products } from "../../data/collections/slider2";
+import { slider3Products } from "../../data/collections/slider3";
+import { slider4Products } from "../../data/collections/slider4";
+import { slider5Products } from "../../data/collections/slider5";
+import { slider6Products } from "../../data/collections/slider6";
+import { Product } from "../../data/types";
 import { Plus } from "lucide-react";
 
 interface SliderProps {

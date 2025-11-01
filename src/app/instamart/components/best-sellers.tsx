@@ -11,7 +11,8 @@ import {
     imageg,
     imaget,
     imageb,
-} from "./../data/itemimg.ts/total.img";
+} from "./../../data/itemimg.ts/total.img";
+// } from "./../data/itemimg.ts/total.img";
 const BestSellers = () => {
     return (
         <div>

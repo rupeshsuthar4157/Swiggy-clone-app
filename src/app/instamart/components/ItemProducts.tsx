@@ -1,15 +1,15 @@
 import React from "react";
 import Image from "next/image";
 import { Plus } from "lucide-react";
-import { Product } from "../data/types";
-import { card1Products } from "../data/top-offerss/card1";
-import { card2Products } from "../data/top-offerss/card2";
-import { card3Products } from "../data/top-offerss/card3";
-import { card4Products } from "../data/top-offerss/card4";
-import { card5Products } from "../data/top-offerss/card5";
-import { card6Products } from "../data/top-offerss/card6";
-import { videoProducts } from "../data/top-offerss/video";
-import { video2Products } from "../data/top-offerss/video2";
+import { Product } from "../../data/types";
+import { card1Products } from "../../data/top-offerss/card1";
+import { card2Products } from "../../data/top-offerss/card2";
+import { card3Products } from "../../data/top-offerss/card3";
+import { card4Products } from "../../data/top-offerss/card4";
+import { card5Products } from "../../data/top-offerss/card5";
+import { card6Products } from "../../data/top-offerss/card6";
+import { videoProducts } from "../../data/top-offerss/video";
+import { video2Products } from "../../data/top-offerss/video2";
 
 // Reusable Slider Component
 interface SliderProps {
