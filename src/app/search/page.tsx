@@ -14,6 +14,8 @@ import {
     ClockAlert,
     X,
 } from "lucide-react";
+import { SiSwiggy } from "react-icons/si";
+import CardSearch from "./components/card";
 
 const Page = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Left sidebar
@@ -202,6 +204,30 @@ const Page = () => {
                     </button>
                 </div>
             </main>
+            <CardSearch/>
+            
+  <div className="lg:hidden">
+   
+
+      {/* Bottom Navigation Bar */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-md py-2 flex justify-around items-center text-gray-600">
+        <Link
+        href={"/"}
+        >
+        <button className="flex  flex-col items-center">
+          <SiSwiggy size={22} />
+          <span className="text-xs font-medium">Swiggy</span>
+        </button>
+        </Link>
+        <Link 
+        href={"search"}>
+        <button className="flex flex-col items-center">
+          <Search size={22} />
+          <span className="text-xs font-medium">Search</span>
+        </button>
+        </Link>
+      </div>
+    </div>
         </div>
     );
 };

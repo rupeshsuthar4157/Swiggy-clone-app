@@ -1,6 +1,5 @@
 "use client";
 import { Star } from "lucide-react";
-import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { breakfastImag, BreakfastItemes } from "../data/Carddenecout";
 

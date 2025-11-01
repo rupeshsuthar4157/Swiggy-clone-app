@@ -152,14 +152,15 @@ const Page = () => {
 
 
       {/* Mobaile Navbar */}
-      <header className="fixed top-0 w-full shadow-sm z-50 bg-white">
+      <header className="lg:hidden fixed top-0 w-full shadow-sm z-50 bg-white">
         <div className="container mx-auto flex items-center justify-between px-4 md:px-10 py-3 flex-wrap gap-4">
           <div className="flex justify-between items-center w-full">
 
           <div className="flex items-center gap-4">
+            <Link href="/">
           <GoArrowLeft 
           size={20}/>
-          
+          </Link>
             <div
               onClick={() => setIsSidebarOpen(true)}
               className="flex items-center cursor-pointer text-gray-600 max-w-[250px] truncate gap-2 group"
@@ -314,14 +315,21 @@ const Page = () => {
 
       {/* Bottom Navigation Bar */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-md py-2 flex justify-around items-center text-gray-600">
+        <Link
+        href={"/"}
+        >
         <button className="flex  flex-col items-center">
           <SiSwiggy size={22} />
           <span className="text-xs font-medium">Swiggy</span>
         </button>
+        </Link>
+        <Link 
+        href={"search"}>
         <button className="flex flex-col items-center">
           <Search size={22} />
           <span className="text-xs font-medium">Search</span>
         </button>
+        </Link>
       </div>
     </div>
   

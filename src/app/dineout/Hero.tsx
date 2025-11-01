@@ -3,15 +3,15 @@ import Image from 'next/image'
 import { ArrowRightLeft } from 'lucide-react';
 
 
-const categories = [
-    "Filter",
-    "Sort by",
-    "Book a Table",
-    "Within 5km",
-    "Rating 4+",
-    "Pure Veg",
-    "Serves Alcohol",
-];
+// const categories = [
+//     "Filter",
+//     "Sort by",
+//     "Book a Table",
+//     "Within 5km",
+//     "Rating 4+",
+//     "Pure Veg",
+//     "Serves Alcohol",
+// ];
 
 const Hero = () => {
     return (
@@ -29,7 +29,7 @@ const Hero = () => {
 
                 </div>
 
-                <div className="flex flex-wrap gap-2 mt-13">
+                {/* <div className=" flex flex-wrap  gap-2 mt-13">
                     {categories.map((item, index) => (
                         <div
                             key={index}
@@ -39,7 +39,7 @@ const Hero = () => {
                             {index < 2 && <ArrowRightLeft size={20} className="text-gray-600" />}
                         </div>
                     ))}
-                </div>
+                </div> */}
             </div>
 
 
